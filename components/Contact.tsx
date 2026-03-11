@@ -27,8 +27,8 @@ const contactLinks = [
       </svg>
     ),
     label: "Hire me on Freelancer",
-    sublabel: "freelancer.com",
-    href: "https://www.freelancer.com/u/arnabbiswas",
+    sublabel: "freelancer.in/u/Arnab00725",
+    href: "https://www.freelancer.in/u/Arnab00725",
   },
   {
     icon: (
@@ -37,8 +37,8 @@ const contactLinks = [
       </svg>
     ),
     label: "See my code on GitHub",
-    sublabel: "github.com/arnab-biswas",
-    href: "https://github.com/arnab-biswas",
+    sublabel: "github.com/Rex-Arnab",
+    href: "https://github.com/Rex-Arnab",
   },
   {
     icon: (
@@ -55,14 +55,14 @@ const contactLinks = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 bg-[#0a0a0a]">
+    <section id="contact" className="py-24 bg-background">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
-          <span className="text-xs font-mono text-[#2563eb] tracking-widest uppercase">Contact</span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mt-2 mb-2">
+          <span className="text-xs font-mono text-accent tracking-widest uppercase">Contact</span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-2 mb-2">
             {"Let's work together"}
           </h2>
-          <p className="text-[#666] text-sm mb-10">
+          <p className="text-muted-fg text-sm mb-10">
             {"I'm available for freelance projects. Response time: under 24 hours."}
           </p>
         </FadeIn>
@@ -74,23 +74,19 @@ export default function Contact() {
                 href={link.href}
                 target={link.href.startsWith("mailto") ? undefined : "_blank"}
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 bg-[#111] border border-[#1a1a1a] rounded-lg px-5 py-4 hover:border-[#2563eb]/40 hover:bg-[#111] group transition-all"
+                className="flex items-center gap-4 bg-card border border-border rounded-lg px-5 py-4 hover:border-accent/40 group transition-all"
               >
-                <span className="text-[#2563eb] shrink-0">{link.icon}</span>
+                <span className="text-accent shrink-0">{link.icon}</span>
                 <div className="flex-1 min-w-0">
-                  <p className="text-white text-sm font-medium group-hover:text-[#2563eb] transition-colors">
+                  <p className="text-foreground text-sm font-medium group-hover:text-accent transition-colors">
                     {link.label}
                   </p>
-                  <p className="text-[#555] text-xs truncate">{link.sublabel}</p>
+                  <p className="text-dim-fg text-xs truncate">{link.sublabel}</p>
                 </div>
                 <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  className="text-[#333] group-hover:text-[#2563eb] transition-colors shrink-0"
+                  width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" strokeWidth="1.5"
+                  className="text-border group-hover:text-accent transition-colors shrink-0"
                 >
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>

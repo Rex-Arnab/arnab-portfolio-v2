@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 const links = [
   { label: "About", href: "#about" },
@@ -23,11 +24,11 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-[#0a0a0a] border-b border-[#1a1a1a] shadow-lg" : "bg-transparent"
+        scrolled ? "bg-background/95 backdrop-blur-sm border-b border-border shadow-sm" : "bg-transparent"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
-        <a href="#" className="font-semibold text-white tracking-tight text-sm">
+        <a href="#" className="font-semibold text-foreground tracking-tight text-sm">
           Arnab Biswas
         </a>
 
@@ -37,51 +38,55 @@ export default function Navbar() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="text-sm text-[#999] hover:text-white transition-colors"
+                className="text-sm text-muted-fg hover:text-foreground transition-colors"
               >
                 {l.label}
               </a>
             </li>
           ))}
+          <li><ThemeToggle /></li>
           <li>
             <a
               href="#contact"
-              className="text-sm bg-[#2563eb] hover:bg-[#1d4ed8] text-white px-4 py-1.5 rounded transition-colors"
+              className="text-sm bg-accent hover:bg-blue-700 text-white px-4 py-1.5 rounded transition-colors"
             >
               Hire Me
             </a>
           </li>
         </ul>
 
-        {/* Mobile hamburger */}
-        <button
-          className="md:hidden text-[#999] hover:text-white"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? (
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M4 4l12 12M16 4L4 16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" fill="none" />
-            </svg>
-          ) : (
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-              <rect y="4" width="20" height="1.5" rx="1" />
-              <rect y="9.25" width="20" height="1.5" rx="1" />
-              <rect y="14.5" width="20" height="1.5" rx="1" />
-            </svg>
-          )}
-        </button>
+        {/* Mobile */}
+        <div className="md:hidden flex items-center gap-2">
+          <ThemeToggle />
+          <button
+            className="text-muted-fg hover:text-foreground"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? (
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M4 4l12 12M16 4L4 16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+              </svg>
+            ) : (
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                <rect y="4" width="20" height="1.5" rx="1" />
+                <rect y="9.25" width="20" height="1.5" rx="1" />
+                <rect y="14.5" width="20" height="1.5" rx="1" />
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#0d0d0d] border-b border-[#1a1a1a] px-6 pb-4">
+        <div className="md:hidden bg-background-alt border-b border-border px-6 pb-4">
           <ul className="flex flex-col gap-3 pt-3">
             {links.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
-                  className="text-sm text-[#999] hover:text-white transition-colors block"
+                  className="text-sm text-muted-fg hover:text-foreground transition-colors block"
                   onClick={() => setMenuOpen(false)}
                 >
                   {l.label}
@@ -91,7 +96,7 @@ export default function Navbar() {
             <li>
               <a
                 href="#contact"
-                className="text-sm bg-[#2563eb] hover:bg-[#1d4ed8] text-white px-4 py-1.5 rounded inline-block transition-colors"
+                className="text-sm bg-accent hover:bg-blue-700 text-white px-4 py-1.5 rounded inline-block transition-colors"
                 onClick={() => setMenuOpen(false)}
               >
                 Hire Me

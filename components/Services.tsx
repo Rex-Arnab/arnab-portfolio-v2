@@ -68,20 +68,20 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 bg-[#0d0d0d]">
+    <section id="services" className="py-24 bg-background-alt">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
-          <span className="text-xs font-mono text-[#2563eb] tracking-widest uppercase">Services</span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mt-2 mb-10">What I Build</h2>
+          <span className="text-xs font-mono text-accent tracking-widest uppercase">Services</span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-2 mb-10">What I Build</h2>
         </FadeIn>
 
         <div className="grid sm:grid-cols-2 gap-5">
           {services.map((s, i) => (
             <FadeIn key={s.title} delay={i * 0.1}>
-              <div className="bg-[#111] border border-[#1a1a1a] rounded-lg p-6 h-full hover:border-[#2563eb]/30 transition-colors">
-                <div className="text-[#2563eb] mb-4">{s.icon}</div>
-                <h3 className="text-white font-semibold text-base mb-2">{s.title}</h3>
-                <p className="text-[#777] text-sm leading-relaxed">{s.desc}</p>
+              <div className="bg-card border border-border rounded-lg p-6 h-full hover:border-accent/30 transition-colors">
+                <div className="text-accent mb-4">{s.icon}</div>
+                <h3 className="text-foreground font-semibold text-base mb-2">{s.title}</h3>
+                <p className="text-muted-fg text-sm leading-relaxed">{s.desc}</p>
               </div>
             </FadeIn>
           ))}
