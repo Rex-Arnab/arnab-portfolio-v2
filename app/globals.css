@@ -1,8 +1,23 @@
+@import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Tailwind theme (migrated from tailwind.config.ts) ── */
+@theme {
+  --color-background: var(--p-bg);
+  --color-background-alt: var(--p-bg-alt);
+  --color-card: var(--p-card);
+  --color-border: var(--p-border);
+  --color-foreground: var(--p-text);
+  --color-muted-fg: var(--p-muted);
+  --color-dim-fg: var(--p-dim);
+  --color-accent: #2563eb;
+
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+}
 
 /* ── Portfolio palette ─────────────────────────────── */
 :root {
@@ -89,12 +104,11 @@
   scroll-behavior: smooth;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-  .dot-pattern {
-    background-image: radial-gradient(circle, var(--p-dot) 1.5px, transparent 1.5px);
-    background-size: 24px 24px;
-  }
+@utility dot-pattern {
+  background-image: radial-gradient(circle, var(--p-dot) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+@utility text-balance {
+  text-wrap: balance;
 }
