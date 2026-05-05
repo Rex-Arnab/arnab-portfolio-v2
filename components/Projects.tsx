@@ -7,7 +7,7 @@ import Lightbox from "./Lightbox";
 
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "0px 0px -10% 0px" });
   return (
     <motion.div
       ref={ref}
@@ -22,10 +22,34 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 
 const projects = [
   {
+    title: "PistonPay — Business Knowledgebase Chat",
+    desc: "Customer-facing chatbot for a payment platform, powered by MCP + RAG over a live business knowledgebase. Handles policy queries, transaction FAQs, and escalation routing.",
+    tags: ["MCP", "RAG", "LLM", "TypeScript", "Node.js"],
+    image: "/images/pistonpay-chat.jpg",
+  },
+  {
     title: "Receipt AI — Gas Transaction Pipeline",
     desc: "AI pipeline that processes 2,000+ gas station receipts daily. Handles OCR extraction, business logic validation, fraud detection, and anomaly flagging — fully automated end-to-end.",
     tags: ["Python", "OCR", "AI Pipeline", "Fraud Detection", "FastAPI"],
     image: "/images/receipt-tester.jpg",
+  },
+  {
+    title: "CyberForceHQ — Cybersecurity Job Board",
+    desc: "Job portal for cybersecurity professionals with AI-driven candidate screening and an AI-powered test-creation wizard for hiring managers. End-to-end build from auth to AI workflows.",
+    tags: ["Next.js", "AI Screening", "MongoDB", "LLM", "Tailwind"],
+    image: null,
+  },
+  {
+    title: "FlowScrape — Drag-and-Drop Workflow Builder",
+    desc: "Visual workflow automation tool where users compose their own web scrapers via a drag-and-drop builder. Built on Next.js, TanStack, and Prisma with a node-based execution engine.",
+    tags: ["Next.js", "TanStack", "Prisma", "TypeScript", "PostgreSQL"],
+    image: null,
+  },
+  {
+    title: "Devhives — Learning Management Platform",
+    desc: "Udemy-style LMS where teachers upload courses and students consume content. Tracks activity logs, sends email reminders, and handles the full course/enrollment lifecycle.",
+    tags: ["Next.js", "MongoDB", "Tailwind CSS", "NextAuth"],
+    image: null,
   },
   {
     title: "N8N MCP Chatbot with Vector Search",
@@ -34,21 +58,9 @@ const projects = [
     image: "/images/n8n-workflow.jpg",
   },
   {
-    title: "PistonPay — Business Knowledgebase Chat",
-    desc: "Customer-facing chatbot for a payment platform, powered by MCP + RAG over a live business knowledgebase. Handles policy queries, transaction FAQs, and escalation routing.",
-    tags: ["MCP", "RAG", "LLM", "TypeScript", "Node.js"],
-    image: "/images/pistonpay-chat.jpg",
-  },
-  {
     title: "AI Image Generation Pipeline",
     desc: "Automated content pipeline for a DTC e-commerce brand — generates product lifestyle images on demand using AI image models, triggered via N8N workflows and delivered through a REST API to their CMS.",
     tags: ["N8N", "AI Image Models", "REST API", "Python", "Automation"],
-    image: null,
-  },
-  {
-    title: "MERN SaaS — Team Task Manager",
-    desc: "Full-stack project management app with real-time updates, role-based access control, Kanban boards, and email notifications. Built for a 50-person remote team replacing their spreadsheet workflow.",
-    tags: ["React", "Node.js", "Express", "MongoDB", "TypeScript"],
     image: null,
   },
   {
@@ -102,11 +114,13 @@ export default function Projects() {
                     </div>
                   </button>
                 ) : (
-                  <div className="w-full h-40 bg-background-alt border-b border-border flex items-center justify-center">
-                    <div className="w-10 h-10 rounded bg-accent/10 border border-accent/20 flex items-center justify-center">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" strokeWidth="1.5">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                      </svg>
+                  <div className="relative w-full h-40 bg-background-alt border-b border-border dot-pattern flex items-center justify-center overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent" />
+                    <div className="relative z-10 flex items-center gap-3 bg-background/70 backdrop-blur-sm border border-border rounded-full px-4 py-2">
+                      <div className="w-2 h-2 rounded-full bg-accent" />
+                      <span className="text-[10px] font-mono text-muted-fg uppercase tracking-widest">
+                        {p.tags[0] ?? "Project"}
+                      </span>
                     </div>
                   </div>
                 )}

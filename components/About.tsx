@@ -42,21 +42,21 @@ export default function About() {
             <p className="text-muted-fg leading-relaxed text-base">
               {"I'm a full-stack developer with deep experience in React, Next.js, and the MERN stack. Over the past few years I've expanded into AI engineering — building RAG pipelines, LLM-powered chatbots, AI image generation workflows, and MCP-based agent systems. I work across the full product lifecycle: architecture, development, deployment, and iteration."}
             </p>
-            <div className="mt-6 flex flex-wrap gap-4">
-              <div className="text-center">
-                <p className="text-2xl font-bold text-foreground">5+</p>
-                <p className="text-xs text-dim-fg mt-1">Years building</p>
-              </div>
-              <div className="w-px bg-border" />
-              <div className="text-center">
-                <p className="text-2xl font-bold text-foreground">30+</p>
-                <p className="text-xs text-dim-fg mt-1">Projects shipped</p>
-              </div>
-              <div className="w-px bg-border" />
-              <div className="text-center">
-                <p className="text-2xl font-bold text-foreground">24h</p>
-                <p className="text-xs text-dim-fg mt-1">Response time</p>
-              </div>
+            <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {[
+                { value: "2M+", label: "Users reached" },
+                { value: "4+",  label: "Years building" },
+                { value: "30+", label: "Projects shipped" },
+                { value: "24h", label: "Response time" },
+              ].map((s) => (
+                <div
+                  key={s.label}
+                  className="bg-card border border-border rounded-lg px-4 py-4 hover:border-accent/40 transition-colors"
+                >
+                  <p className="text-2xl sm:text-3xl font-bold text-foreground tracking-tight">{s.value}</p>
+                  <p className="text-[11px] font-mono text-dim-fg uppercase tracking-wider mt-1">{s.label}</p>
+                </div>
+              ))}
             </div>
           </FadeIn>
 

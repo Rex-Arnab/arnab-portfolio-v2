@@ -25,10 +25,10 @@
   --p-bg:     #ffffff;
   --p-bg-alt: #f5f5f5;
   --p-card:   #fafafa;
-  --p-border: #e5e5e5;
+  --p-border: #d4d4d4;
   --p-text:   #111111;
-  --p-muted:  #6b6b6b;
-  --p-dim:    #999999;
+  --p-muted:  #525252;
+  --p-dim:    #737373;
   --p-dot:    #c8c8c8;
 }
 
@@ -36,11 +36,11 @@
   /* Dark mode */
   --p-bg:     #0a0a0a;
   --p-bg-alt: #0d0d0d;
-  --p-card:   #111111;
-  --p-border: #1a1a1a;
+  --p-card:   #141414;
+  --p-border: #2a2a2a;
   --p-text:   #ededed;
-  --p-muted:  #888888;
-  --p-dim:    #555555;
+  --p-muted:  #a1a1a1;
+  --p-dim:    #737373;
   --p-dot:    #2a2a2a;
 }
 

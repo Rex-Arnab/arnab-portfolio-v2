@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { Layout, Server, Database, Sparkles, Cloud } from "lucide-react";
 
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef(null);
@@ -21,23 +22,28 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 const categories = [
   {
     label: "Frontend",
-    items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Flutter"],
+    icon: Layout,
+    items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "React Native", "Redux"],
   },
   {
     label: "Backend",
-    items: ["Node.js", "Express", "Python", "FastAPI", "Laravel"],
+    icon: Server,
+    items: ["Node.js", "Express", "Python", "FastAPI", "REST APIs", "Serverless"],
   },
   {
     label: "Database",
-    items: ["MongoDB", "PostgreSQL", "SQLite"],
+    icon: Database,
+    items: ["MongoDB", "PostgreSQL", "MySQL", "Prisma", "Firebase"],
   },
   {
     label: "AI / ML",
+    icon: Sparkles,
     items: ["OpenAI", "Claude (Anthropic)", "OpenRouter", "LangChain", "RAG", "N8N", "MCP"],
   },
   {
     label: "DevOps",
-    items: ["Docker", "AWS", "Vercel", "Git"],
+    icon: Cloud,
+    items: ["Docker", "AWS", "GCP", "Vercel", "Git"],
   },
 ];
 
@@ -51,25 +57,31 @@ export default function TechStack() {
         </FadeIn>
 
         <div className="space-y-6">
-          {categories.map((cat, i) => (
-            <FadeIn key={cat.label} delay={i * 0.1}>
-              <div className="flex flex-col sm:flex-row sm:items-start gap-3">
-                <span className="text-xs font-mono text-dim-fg w-28 shrink-0 pt-1 uppercase tracking-wider">
-                  {cat.label}
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {cat.items.map((item) => (
-                    <span
-                      key={item}
-                      className="text-xs text-muted-fg bg-card border border-border px-3 py-1.5 rounded hover:border-accent/30 hover:text-foreground transition-colors"
-                    >
-                      {item}
+          {categories.map((cat, i) => {
+            const Icon = cat.icon;
+            return (
+              <FadeIn key={cat.label} delay={i * 0.1}>
+                <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5">
+                  <div className="flex items-center gap-2 sm:w-32 shrink-0 sm:pt-1.5">
+                    <Icon className="w-4 h-4 text-accent" strokeWidth={1.75} />
+                    <span className="text-xs font-mono text-muted-fg uppercase tracking-wider">
+                      {cat.label}
                     </span>
-                  ))}
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {cat.items.map((item) => (
+                      <span
+                        key={item}
+                        className="text-xs text-foreground bg-card border border-border px-3 py-1.5 rounded hover:border-accent/40 hover:text-accent transition-colors"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </FadeIn>
-          ))}
+              </FadeIn>
+            );
+          })}
         </div>
       </div>
     </section>

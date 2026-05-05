@@ -23,8 +23,9 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <span className="inline-block text-xs font-mono text-accent bg-accent/10 border border-accent/20 px-3 py-1 rounded-full mb-6 tracking-widest uppercase">
-            Available for freelance
+          <span className="inline-flex items-center gap-2 text-xs font-mono text-accent bg-accent/10 border border-accent/20 px-3 py-1 rounded-full mb-6 tracking-widest uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+            4 yrs · 2M+ users served · Full-Stack &amp; AI
           </span>
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-foreground tracking-tight leading-none mb-4">
             Arnab Biswas
@@ -32,7 +33,7 @@ export default function Hero() {
           <p className="text-xl sm:text-2xl text-accent font-medium mb-4">
             Full-Stack &amp; AI Developer
           </p>
-          <p className="text-muted-fg text-base sm:text-lg max-w-xl mx-auto mb-10">
+          <p className="text-muted-fg text-base sm:text-lg max-w-xl mx-auto mb-10 text-balance">
             I build production-grade web apps, AI pipelines, and automation systems.
           </p>
 
@@ -51,17 +52,17 @@ export default function Hero() {
             </a>
           </div>
         </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.6 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
-        >
-          <span className="text-xs text-dim-fg tracking-widest uppercase">scroll</span>
-          <div className="w-px h-8 bg-border" />
-        </motion.div>
       </div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.6 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 pointer-events-none"
+      >
+        <span className="text-xs text-dim-fg tracking-widest uppercase">scroll</span>
+        <div className="w-px h-8 bg-border" />
+      </motion.div>
     </section>
   );
 }
